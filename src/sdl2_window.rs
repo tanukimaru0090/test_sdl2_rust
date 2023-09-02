@@ -123,7 +123,7 @@ impl Sdl2Window {
                 }
             }
             unsafe {
-                gl::Clear(gl::RED);
+                gl::Clear(gl::COLOR_BUFFER_BIT);
                 gl::UseProgram(shader_program);
             }
             {
@@ -154,7 +154,7 @@ impl Sdl2Window {
                         (3 * std::mem::size_of::<f32>()) as gl::types::GLint,
                         std::ptr::null(),
                     );
-                    gl::DrawArrays(gl::TRIANGLES,1 , 4);
+                    gl::DrawArrays(gl::TRIANGLES, 0, 3);
                 }
             }
             window.gl_swap_window();
